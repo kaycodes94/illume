@@ -102,7 +102,7 @@ function naira($val) {
     <!-- Navigation -->
     <nav class="border-b border-brand-border px-8 py-4 flex justify-between items-center sticky top-0 z-50 bg-white/80 backdrop-blur-md">
         <div class="flex items-center gap-4">
-            <span class="font-serif italic text-2xl text-brand-gold">I</span>
+            <img src="assets/img/logo.png" alt="ILLUME Logo" class="h-6 w-auto">
             <div class="h-6 w-[1px] bg-brand-border"></div>
             <span class="text-xs uppercase tracking-widest font-bold text-gray-400">Strategic Workspace</span>
         </div>

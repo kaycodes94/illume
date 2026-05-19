@@ -75,7 +75,7 @@ while ($row = $res ? $res->fetch_assoc() : null) {
     <!-- Sidebar -->
     <aside class="w-64 sidebar hidden lg:flex flex-col p-6 sticky top-0 h-screen">
         <div class="mb-12 flex items-center gap-3">
-            <span class="font-serif italic text-3xl text-brand-gold">I</span>
+            <img src="assets/img/logo.png" alt="ILLUME Logo" class="h-8 w-auto">
             <span class="text-sm tracking-[0.3em] font-light">ILLUME</span>
         </div>
         <nav class="flex-grow space-y-2">

@@ -96,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <div class="w-full max-w-[440px] relative z-10">
         <div class="text-center mb-10">
-            <span class="font-serif italic text-4xl text-brand-gold mb-2 inline-block">I</span>
+            <img src="assets/img/logo.png" alt="ILLUME Logo" class="h-12 w-auto mb-2 mx-auto">
             <h1 class="text-[10px] uppercase tracking-[0.4em] text-brand-black/60 font-medium">Enterprise Management</h1>
         </div>
 

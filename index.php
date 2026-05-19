@@ -630,7 +630,7 @@ function naira($val) {
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
             <div class="flex justify-between items-center h-20 md:h-24">
                 <button class="flex items-center cursor-pointer" onclick="switchView('home')" aria-label="<?= htmlspecialchars($settings['brand_name']) ?> — Home">
-                    <span class="font-serif italic text-3xl md:text-4xl text-brand-gold mr-2">I</span>
+                    <img src="assets/img/logo.png" alt="ILLUME" class="h-8 md:h-10 w-auto mr-3">
                     <span
                         class="font-sans text-lg md:text-xl tracking-[0.3em] font-light text-brand-black mt-1">ILLUME</span>
                 </button>
@@ -1247,7 +1247,7 @@ function naira($val) {
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
                 <div>
                     <div class="flex items-center mb-6">
-                        <span class="font-serif italic text-2xl text-brand-gold mr-2">I</span>
+                        <img src="assets/img/logo.png" alt="ILLUME" class="h-6 md:h-8 w-auto mr-3">
                         <span class="font-sans text-sm tracking-[0.3em] font-light text-brand-black mt-1">ILLUME</span>
                     </div>
                     <p class="text-gray-500 text-sm font-light max-w-xs">
