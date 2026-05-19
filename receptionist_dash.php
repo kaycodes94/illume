@@ -6,6 +6,15 @@
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+session_start();
+
+if (!isset($_SESSION['admin_id']) || $_SESSION['admin_role'] !== 'receptionist') {
+    header("Location: login.php");
+    exit;
+}
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 // Database Connection
 $host = 'localhost';
@@ -117,10 +126,18 @@ function format_time($t) {
             </a>
         </nav>
 
-        <div class="mt-auto pt-6 border-t border-white/10">
+        <div class="mt-auto pt-6 border-t border-white/10 space-y-4">
             <a href="index.php" class="text-xs text-gray-500 hover:text-brand-gold flex items-center gap-2">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
                 Back to Site
+            </a>
+            <button onclick="openChangePasswordModal()" class="w-full text-left text-xs text-gray-500 hover:text-brand-gold flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                Change Password
+            </button>
+            <a href="login.php" class="text-xs text-red-500 hover:text-red-700 flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                Logout
             </a>
         </div>
     </aside>
@@ -370,6 +387,38 @@ function format_time($t) {
         </div>
     </div>
 
+    <!-- Change Password Modal -->
+    <div id="password-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] hidden items-center justify-center p-6">
+        <div class="bg-white w-full max-w-md rounded-[32px] p-10 shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1.5 bg-brand-gold"></div>
+            <button onclick="closeChangePasswordModal()" class="absolute top-6 right-6 text-gray-400 hover:text-brand-black transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+            <h2 class="font-serif text-2xl mb-2">Security Settings</h2>
+            <p class="text-xs text-gray-400 uppercase tracking-widest mb-8">Update Access Key</p>
+            
+            <div id="password-alert" class="hidden mb-6 p-4 rounded-2xl text-[10px] uppercase tracking-widest text-center font-bold"></div>
+
+            <form id="password-form" class="space-y-6">
+                <div>
+                    <label class="text-[10px] uppercase tracking-widest text-gray-400 block mb-2 font-bold">Current Password</label>
+                    <input type="password" name="current_password" required class="w-full bg-gray-50 border border-brand-border rounded-2xl px-5 py-4 text-sm focus:border-brand-gold outline-none transition-all placeholder:text-gray-300">
+                </div>
+                <div>
+                    <label class="text-[10px] uppercase tracking-widest text-gray-400 block mb-2 font-bold">New Password</label>
+                    <input type="password" name="new_password" required class="w-full bg-gray-50 border border-brand-border rounded-2xl px-5 py-4 text-sm focus:border-brand-gold outline-none transition-all placeholder:text-gray-300">
+                </div>
+                <div>
+                    <label class="text-[10px] uppercase tracking-widest text-gray-400 block mb-2 font-bold">Confirm New Password</label>
+                    <input type="password" name="confirm_password" required class="w-full bg-gray-50 border border-brand-border rounded-2xl px-5 py-4 text-sm focus:border-brand-gold outline-none transition-all placeholder:text-gray-300">
+                </div>
+                <div class="pt-4">
+                    <button type="submit" id="password-submit-btn" class="w-full bg-brand-black text-white py-4 rounded-2xl text-xs uppercase tracking-[0.2em] font-bold hover:bg-brand-gold hover:text-brand-black transition-all">Update Password</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script>
         function openBookingModal() {
             document.getElementById('booking-modal').style.display = 'flex';
@@ -395,6 +444,54 @@ function format_time($t) {
             alert('Lead successfully routed to ' + team);
             closeAssignModal();
         }
+        function openChangePasswordModal() {
+            document.getElementById('password-modal').style.display = 'flex';
+            document.getElementById('password-alert').classList.add('hidden');
+            document.getElementById('password-form').reset();
+        }
+        function closeChangePasswordModal() {
+            document.getElementById('password-modal').style.display = 'none';
+        }
+
+        document.getElementById('password-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('password-submit-btn');
+            const alertBox = document.getElementById('password-alert');
+            
+            btn.innerHTML = 'PROCESSING...';
+            btn.disabled = true;
+
+            const formData = new FormData(this);
+
+            fetch('change_password.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                btn.innerHTML = 'UPDATE PASSWORD';
+                btn.disabled = false;
+                
+                alertBox.classList.remove('hidden', 'bg-red-50', 'text-red-500', 'border-red-100', 'bg-green-50', 'text-green-600', 'border-green-100');
+                
+                if (data.success) {
+                    alertBox.classList.add('bg-green-50', 'text-green-600', 'border', 'border-green-100');
+                    alertBox.innerText = data.message;
+                    setTimeout(() => { closeChangePasswordModal(); }, 2000);
+                } else {
+                    alertBox.classList.add('bg-red-50', 'text-red-500', 'border', 'border-red-100');
+                    alertBox.innerText = data.message;
+                }
+            })
+            .catch(err => {
+                btn.innerHTML = 'UPDATE PASSWORD';
+                btn.disabled = false;
+                alertBox.classList.remove('hidden');
+                alertBox.classList.add('bg-red-50', 'text-red-500', 'border', 'border-red-100');
+                alertBox.innerText = 'An error occurred. Please try again.';
+            });
+        });
+
         // Handle Sidebar "Coming Soon"
         document.querySelectorAll('.nav-link:not(.active)[href="#"]').forEach(link => {
             link.addEventListener('click', (e) => {
