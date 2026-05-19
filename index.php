@@ -1237,7 +1237,7 @@ function naira($val) {
 
     </main>
 
-    <footer class="bg-[#FAFAFA] border-t border-gray-100 pt-16 pb-8">
+    <footer class="bg-[#FAFAFA] border-t border-gray-100 pt-16 pb-8 relative z-50">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
                 <div>
@@ -1260,9 +1260,9 @@ function naira($val) {
                 </div>
                 <div>
                     <h4 class="text-brand-black font-medium mb-6 uppercase tracking-widest text-xs">Connect</h4>
-                    <ul class="text-gray-500 text-sm font-light space-y-3">
-                        <li><a href="mailto:<?= htmlspecialchars($settings['email_contact']) ?>" class="hover:text-brand-gold transition-colors"><?= htmlspecialchars($settings['email_contact']) ?></a></li>
-                        <li><a href="https://wa.me/<?= str_replace(['+', ' '], '', $settings['whatsapp_number']) ?>" target="_blank" rel="noopener" class="hover:text-brand-gold transition-colors"><?= htmlspecialchars($settings['whatsapp_number']) ?> (WhatsApp)</a></li>
+                    <ul class="text-gray-500 text-sm font-light space-y-3 relative z-50">
+                        <li><a href="mailto:<?= htmlspecialchars($settings['email_contact']) ?>" class="hover:text-brand-gold hover:underline transition-colors cursor-pointer inline-block"><?= htmlspecialchars($settings['email_contact']) ?></a></li>
+                        <li><a href="https://wa.me/<?= str_replace(['+', ' '], '', $settings['whatsapp_number']) ?>" target="_blank" rel="noopener" class="hover:text-brand-gold hover:underline transition-colors cursor-pointer inline-block"><?= htmlspecialchars($settings['whatsapp_number']) ?> (WhatsApp)</a></li>
                         <li class="pt-2">
                             <a href="https://instagram.com/<?= str_replace('@', '', $settings['instagram_handle'] ?? '') ?>" target="_blank" rel="noopener" class="inline-block border border-gray-200 px-4 py-2 rounded-full hover:border-brand-gold hover:text-brand-gold text-brand-black transition-colors text-xs">Instagram</a>
                         </li>
