@@ -140,30 +140,30 @@ function naira($val) {
             <div class="card p-8 rounded-[32px] relative overflow-hidden">
                 <div class="shimmer absolute inset-0 pointer-events-none"></div>
                 <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400 mb-6 font-bold">Gross Revenue</p>
-                <h2 class="text-4xl font-serif text-brand-black mb-3"><?= $stats ? naira($stats['gross_revenue']) : '₦0' ?></h2>
+                <h2 class="text-4xl font-serif text-brand-black mb-3">₦0</h2>
                 <div class="flex items-center gap-2">
-                    <span class="text-[10px] font-bold text-green-500 uppercase tracking-widest">+12% Growth</span>
+                    <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">—</span>
                 </div>
             </div>
             <div class="card p-8 rounded-[32px]">
                 <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400 mb-6 font-bold">Acquisition Cost</p>
-                <h2 class="text-4xl font-serif text-brand-black mb-3"><?= ($stats && isset($stats['cac'])) ? naira($stats['cac']) : '₦0' ?></h2>
+                <h2 class="text-4xl font-serif text-brand-black mb-3">₦0</h2>
                 <div class="flex items-center gap-2">
-                    <span class="text-[10px] font-bold text-brand-gold uppercase tracking-widest">Optimized</span>
+                    <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">—</span>
                 </div>
             </div>
             <div class="card p-8 rounded-[32px]">
                 <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400 mb-6 font-bold">Lead Conversion</p>
-                <h2 class="text-4xl font-serif text-brand-black mb-3"><?= ($stats && isset($stats['conversion_rate'])) ? $stats['conversion_rate'] . '%' : '0%' ?></h2>
+                <h2 class="text-4xl font-serif text-brand-black mb-3">0%</h2>
                 <div class="flex items-center gap-2">
-                    <span class="text-[10px] font-bold text-green-500 uppercase tracking-widest">In-Target</span>
+                    <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">—</span>
                 </div>
             </div>
             <div class="card p-8 rounded-[32px]">
                 <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400 mb-6 font-bold">Profit Margin</p>
-                <h2 class="text-4xl font-serif text-brand-black mb-3">72%</h2>
+                <h2 class="text-4xl font-serif text-brand-black mb-3">0%</h2>
                 <div class="flex items-center gap-2">
-                    <span class="text-[10px] font-bold text-brand-purple uppercase tracking-widest">Elite Tier</span>
+                    <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">—</span>
                 </div>
             </div>
         </div>
