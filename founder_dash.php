@@ -20,7 +20,7 @@ ini_set('display_errors', 1);
 $host = 'localhost';
 $user = 'root';
 $pass = '';
-$db   = 'illume_db';
+$db = 'illume_db';
 
 $conn = new mysqli($host, $user, $pass, $db);
 
@@ -52,19 +52,23 @@ while ($row = $activity_res ? $activity_res->fetch_assoc() : null) {
     $activities[] = $row;
 }
 
-function naira($val) {
-    return '₦' . number_format((float)$val);
+function naira($val)
+{
+    return '₦' . number_format((float) $val);
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Founder Workspace — ILLUME</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
@@ -90,32 +94,64 @@ function naira($val) {
         };
     </script>
     <style>
-        body { background-color: #fdfdfd; color: #1a1a1a; }
-        .card { background: #fff; border: 1px solid rgba(0, 0, 0, 0.05); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02); }
-        .gold-gradient { background: linear-gradient(135deg, #B8860B 0%, #D4AF37 50%, #B8860B 100%); }
-        .shimmer { background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.03) 50%, transparent 100%); background-size: 200% 100%; animation: shimmer 3s infinite; }
-        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+        body {
+            background-color: #fdfdfd;
+            color: #1a1a1a;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+        }
+
+        .gold-gradient {
+            background: linear-gradient(135deg, #B8860B 0%, #D4AF37 50%, #B8860B 100%);
+        }
+
+        .shimmer {
+            background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.03) 50%, transparent 100%);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+
+            100% {
+                background-position: 200% 0;
+            }
+        }
     </style>
 </head>
+
 <body class="antialiased font-sans min-h-screen">
 
     <!-- Navigation -->
-    <nav class="border-b border-brand-border px-8 py-4 flex justify-between items-center sticky top-0 z-50 bg-white/80 backdrop-blur-md">
+    <nav
+        class="border-b border-brand-border px-8 py-4 flex justify-between items-center sticky top-0 z-50 bg-white/80 backdrop-blur-md">
         <div class="flex items-center gap-4">
             <img src="assets/img/logo.png" alt="ILLUME Logo" class="h-6 w-auto">
             <div class="h-6 w-[1px] bg-brand-border"></div>
             <span class="text-xs uppercase tracking-widest font-bold text-gray-400">Strategic Workspace</span>
         </div>
         <div class="flex items-center gap-6">
-            <a href="index.php" class="text-[10px] uppercase tracking-widest text-gray-500 hover:text-brand-gold transition-colors">Return to Site</a>
+            <a href="index.php"
+                class="text-[10px] uppercase tracking-widest text-gray-500 hover:text-brand-gold transition-colors">Return
+                to Site</a>
             <div class="flex items-center gap-3">
                 <div class="text-right">
                     <p class="text-[10px] text-gray-400 uppercase tracking-widest leading-none mb-1">Founder</p>
-                    <p class="text-xs font-bold text-brand-black cursor-pointer hover:text-brand-gold transition-colors" onclick="openChangePasswordModal()">Ikedichukwu Peace</p>
+                    <p class="text-xs font-bold text-brand-black cursor-pointer hover:text-brand-gold transition-colors"
+                        onclick="openChangePasswordModal()">Ikedichukwu Peace</p>
                 </div>
-                <div class="w-8 h-8 rounded-full border border-brand-gold/30 bg-brand-gold/10 flex items-center justify-center font-serif italic text-brand-gold cursor-pointer" onclick="openChangePasswordModal()" title="Change Password">P</div>
+                <div class="w-8 h-8 rounded-full border border-brand-gold/30 bg-brand-gold/10 flex items-center justify-center font-serif italic text-brand-gold cursor-pointer"
+                    onclick="openChangePasswordModal()" title="Change Password">P</div>
             </div>
-            <a href="login.php" class="text-[10px] uppercase tracking-widest text-red-500 hover:text-red-700 transition-colors ml-2 font-bold">Logout</a>
+            <a href="login.php"
+                class="text-[10px] uppercase tracking-widest text-red-500 hover:text-red-700 transition-colors ml-2 font-bold">Logout</a>
         </div>
     </nav>
 
@@ -123,15 +159,19 @@ function naira($val) {
         <!-- Header -->
         <header class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
-                <h1 class="font-serif text-4xl md:text-5xl text-brand-black mb-2">Morning, <span class="italic text-brand-gold">Peace.</span></h1>
-                <p class="text-gray-400 font-light text-sm tracking-wide uppercase tracking-[0.15em]">Enterprise Overview · <?= date('F Y') ?></p>
+                <h1 class="font-serif text-4xl md:text-5xl text-brand-black mb-2">Morning, <span
+                        class="italic text-brand-gold">Peace.</span></h1>
+                <p class="text-gray-400 font-light text-sm tracking-wide uppercase tracking-[0.15em]">Enterprise
+                    Overview · <?= date('F Y') ?></p>
             </div>
             <div class="bg-brand-black text-white px-6 py-3 rounded-2xl flex items-center gap-4 shadow-xl">
                 <div class="text-right border-r border-white/10 pr-4">
                     <p class="text-[9px] uppercase tracking-widest text-gray-400 mb-1">Active Bespoke</p>
                     <p class="text-lg font-serif italic text-brand-gold"><?= $active_orders ?></p>
                 </div>
-                <a href="orders_manage.php" class="text-[10px] uppercase tracking-widest font-bold hover:text-brand-gold transition-colors">View All Orders</a>
+                <a href="orders_manage.php"
+                    class="text-[10px] uppercase tracking-widest font-bold hover:text-brand-gold transition-colors">View
+                    All Orders</a>
             </div>
         </header>
 
@@ -173,12 +213,15 @@ function naira($val) {
             <div class="lg:col-span-2 card p-10 rounded-[40px]">
                 <div class="flex justify-between items-center mb-10">
                     <div>
-                        <h3 class="text-[10px] uppercase tracking-[0.2em] text-brand-gold font-bold mb-2">Revenue Trajectory</h3>
+                        <h3 class="text-[10px] uppercase tracking-[0.2em] text-brand-gold font-bold mb-2">Revenue
+                            Trajectory</h3>
                         <p class="text-brand-black font-serif text-2xl">H1 Performance</p>
                     </div>
                     <div class="flex gap-2">
-                        <button onclick="alert('Viewing detailed Monthly revenue breakdown.')" class="text-[9px] uppercase tracking-widest px-4 py-2 rounded-xl bg-brand-black text-white font-bold">Monthly</button>
-                        <button onclick="alert('Quarterly reporting is currently being synthesized.')" class="text-[9px] uppercase tracking-widest px-4 py-2 rounded-xl border border-brand-border text-gray-400 font-bold">Quarterly</button>
+                        <button onclick="alert('Viewing detailed Monthly revenue breakdown.')"
+                            class="text-[9px] uppercase tracking-widest px-4 py-2 rounded-xl bg-brand-black text-white font-bold">Monthly</button>
+                        <button onclick="alert('Quarterly reporting is currently being synthesized.')"
+                            class="text-[9px] uppercase tracking-widest px-4 py-2 rounded-xl border border-brand-border text-gray-400 font-bold">Quarterly</button>
                     </div>
                 </div>
                 <div class="h-[350px]">
@@ -187,34 +230,39 @@ function naira($val) {
             </div>
 
             <div class="card p-10 rounded-[40px]">
-                <h3 class="text-[10px] uppercase tracking-[0.2em] text-brand-gold font-bold mb-10">Service Portfolio</h3>
+                <h3 class="text-[10px] uppercase tracking-[0.2em] text-brand-gold font-bold mb-10">Service Portfolio
+                </h3>
                 <div class="space-y-8">
-                    <?php 
+                    <?php
                     $categories = [
                         ['name' => 'Bridals & Asoebi', 'color' => '#D4AF37', 'icon' => 'B'],
-                        ['name' => 'Suits & Dinner',   'color' => '#301934', 'icon' => 'S'],
-                        ['name' => 'African Luxury',   'color' => '#B8860B', 'icon' => 'A'],
-                        ['name' => 'Consultancy',      'color' => '#888888', 'icon' => 'C']
+                        ['name' => 'Suits & Dinner', 'color' => '#301934', 'icon' => 'S'],
+                        ['name' => 'African Luxury', 'color' => '#B8860B', 'icon' => 'A'],
+                        ['name' => 'Consultancy', 'color' => '#888888', 'icon' => 'C']
                     ];
-                    foreach ($categories as $cat): 
+                    foreach ($categories as $cat):
                         $p = $mix[$cat['name']]['percentage'] ?? 0;
                         $amt = $mix[$cat['name']]['amount'] ?? 0;
-                    ?>
-                    <div>
-                        <div class="flex justify-between items-end mb-3">
-                            <div class="flex items-center gap-4">
-                                <div class="w-10 h-10 rounded-2xl flex items-center justify-center text-[11px] font-serif border border-brand-border" style="color: <?= $cat['color'] ?>; background: <?= $cat['color'] ?>10"><?= $cat['icon'] ?></div>
-                                <div>
-                                    <p class="text-xs font-bold text-brand-black uppercase tracking-widest"><?= $cat['name'] ?></p>
-                                    <p class="text-[10px] text-gray-400"><?= naira($amt) ?></p>
+                        ?>
+                        <div>
+                            <div class="flex justify-between items-end mb-3">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-10 h-10 rounded-2xl flex items-center justify-center text-[11px] font-serif border border-brand-border"
+                                        style="color: <?= $cat['color'] ?>; background: <?= $cat['color'] ?>10">
+                                        <?= $cat['icon'] ?></div>
+                                    <div>
+                                        <p class="text-xs font-bold text-brand-black uppercase tracking-widest">
+                                            <?= $cat['name'] ?></p>
+                                        <p class="text-[10px] text-gray-400"><?= naira($amt) ?></p>
+                                    </div>
                                 </div>
+                                <span class="text-sm font-serif italic text-brand-gold"><?= $p ?>%</span>
                             </div>
-                            <span class="text-sm font-serif italic text-brand-gold"><?= $p ?>%</span>
+                            <div class="w-full bg-gray-100 rounded-full h-1.5 overflow-hidden">
+                                <div class="h-full rounded-full"
+                                    style="width: <?= $p ?>%; background-color: <?= $cat['color'] ?>;"></div>
+                            </div>
                         </div>
-                        <div class="w-full bg-gray-100 rounded-full h-1.5 overflow-hidden">
-                            <div class="h-full rounded-full" style="width: <?= $p ?>%; background-color: <?= $cat['color'] ?>;"></div>
-                        </div>
-                    </div>
                     <?php endforeach; ?>
                 </div>
             </div>
@@ -223,20 +271,25 @@ function naira($val) {
         <!-- Activity & Ateliers -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div class="card p-10 rounded-[40px]">
-                <h3 class="text-[10px] uppercase tracking-[0.2em] text-brand-gold font-bold mb-10">Live Activity Feed</h3>
+                <h3 class="text-[10px] uppercase tracking-[0.2em] text-brand-gold font-bold mb-10">Live Activity Feed
+                </h3>
                 <div class="space-y-8">
                     <?php if (empty($activities)): ?>
                         <p class="text-xs text-gray-400 italic py-4">No recent signals detected.</p>
                     <?php else: ?>
                         <?php foreach ($activities as $log): ?>
-                        <div class="flex gap-6 relative group">
-                            <div class="w-2.5 h-2.5 rounded-full bg-brand-gold mt-1.5 shrink-0 group-hover:scale-150 transition-transform"></div>
-                            <div class="pb-8 border-l border-brand-border pl-8 -ml-[13px]">
-                                <p class="text-sm font-bold text-brand-black mb-1"><?= htmlspecialchars($log['action']) ?></p>
-                                <p class="text-xs text-gray-400 mb-3"><?= htmlspecialchars($log['details']) ?></p>
-                                <span class="text-[9px] text-brand-gold font-bold uppercase tracking-[0.2em] bg-brand-gold/5 px-2 py-1 rounded-md"><?= date('H:i', strtotime($log['logged_at'])) ?></span>
+                            <div class="flex gap-6 relative group">
+                                <div
+                                    class="w-2.5 h-2.5 rounded-full bg-brand-gold mt-1.5 shrink-0 group-hover:scale-150 transition-transform">
+                                </div>
+                                <div class="pb-8 border-l border-brand-border pl-8 -ml-[13px]">
+                                    <p class="text-sm font-bold text-brand-black mb-1"><?= htmlspecialchars($log['action']) ?>
+                                    </p>
+                                    <p class="text-xs text-gray-400 mb-3"><?= htmlspecialchars($log['details']) ?></p>
+                                    <span
+                                        class="text-[9px] text-brand-gold font-bold uppercase tracking-[0.2em] bg-brand-gold/5 px-2 py-1 rounded-md"><?= date('H:i', strtotime($log['logged_at'])) ?></span>
+                                </div>
                             </div>
-                        </div>
                         <?php endforeach; ?>
                     <?php endif; ?>
                 </div>
@@ -244,7 +297,8 @@ function naira($val) {
 
             <div class="card p-10 rounded-[40px] relative overflow-hidden bg-brand-black text-white">
                 <div class="absolute -top-24 -right-24 w-64 h-64 bg-brand-gold/10 rounded-full blur-[100px]"></div>
-                <h3 class="text-[10px] uppercase tracking-[0.2em] text-brand-gold font-bold mb-10">Regional Atelier Load</h3>
+                <h3 class="text-[10px] uppercase tracking-[0.2em] text-brand-gold font-bold mb-10">Regional Atelier Load
+                </h3>
                 <div class="space-y-10">
                     <div class="flex justify-between items-center">
                         <div>
@@ -253,7 +307,8 @@ function naira($val) {
                         </div>
                         <div class="text-right">
                             <p class="text-3xl font-serif text-brand-gold italic">85%</p>
-                            <p class="text-[10px] text-yellow-500 uppercase tracking-widest mt-1 font-bold">Critical Load</p>
+                            <p class="text-[10px] text-yellow-500 uppercase tracking-widest mt-1 font-bold">Critical
+                                Load</p>
                         </div>
                     </div>
                     <div class="flex justify-between items-center border-t border-white/10 pt-10">
@@ -263,12 +318,15 @@ function naira($val) {
                         </div>
                         <div class="text-right">
                             <p class="text-3xl font-serif text-white italic">42%</p>
-                            <p class="text-[10px] text-green-500 uppercase tracking-widest mt-1 font-bold">High Elasticity</p>
+                            <p class="text-[10px] text-green-500 uppercase tracking-widest mt-1 font-bold">High
+                                Elasticity</p>
                         </div>
                     </div>
                     <div class="bg-white/5 border border-white/10 p-6 rounded-2xl mt-10">
-                        <p class="text-[10px] uppercase tracking-[0.2em] text-brand-gold mb-3 font-bold">Actionable Insight</p>
-                        <p class="text-xs text-gray-400 leading-relaxed italic">"Divert new suits and dinner consults to Ebonyi virtual desks to preserve Abuja's capacity for high-margin bridal fittings."</p>
+                        <p class="text-[10px] uppercase tracking-[0.2em] text-brand-gold mb-3 font-bold">Actionable
+                            Insight</p>
+                        <p class="text-xs text-gray-400 leading-relaxed italic">"Divert new suits and dinner consults to
+                            Ebonyi virtual desks to preserve Abuja's capacity for high-margin bridal fittings."</p>
                     </div>
                 </div>
             </div>
@@ -276,32 +334,45 @@ function naira($val) {
     </main>
 
     <!-- Change Password Modal -->
-    <div id="password-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] hidden items-center justify-center p-6">
+    <div id="password-modal"
+        class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] hidden items-center justify-center p-6">
         <div class="bg-white w-full max-w-md rounded-[32px] p-10 shadow-2xl relative overflow-hidden">
             <div class="absolute top-0 left-0 w-full h-1.5 bg-brand-gold"></div>
-            <button onclick="closeChangePasswordModal()" class="absolute top-6 right-6 text-gray-400 hover:text-brand-black transition-colors">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" /></svg>
+            <button onclick="closeChangePasswordModal()"
+                class="absolute top-6 right-6 text-gray-400 hover:text-brand-black transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M6 18L18 6M6 6l12 12" />
+                </svg>
             </button>
             <h2 class="font-serif text-2xl mb-2">Security Settings</h2>
             <p class="text-xs text-gray-400 uppercase tracking-widest mb-8">Update Access Key</p>
-            
-            <div id="password-alert" class="hidden mb-6 p-4 rounded-2xl text-[10px] uppercase tracking-widest text-center font-bold"></div>
+
+            <div id="password-alert"
+                class="hidden mb-6 p-4 rounded-2xl text-[10px] uppercase tracking-widest text-center font-bold"></div>
 
             <form id="password-form" class="space-y-6">
                 <div>
-                    <label class="text-[10px] uppercase tracking-widest text-gray-400 block mb-2 font-bold">Current Password</label>
-                    <input type="password" name="current_password" required class="w-full bg-gray-50 border border-brand-border rounded-2xl px-5 py-4 text-sm focus:border-brand-gold outline-none transition-all placeholder:text-gray-300">
+                    <label class="text-[10px] uppercase tracking-widest text-gray-400 block mb-2 font-bold">Current
+                        Password</label>
+                    <input type="password" name="current_password" required
+                        class="w-full bg-gray-50 border border-brand-border rounded-2xl px-5 py-4 text-sm focus:border-brand-gold outline-none transition-all placeholder:text-gray-300">
                 </div>
                 <div>
-                    <label class="text-[10px] uppercase tracking-widest text-gray-400 block mb-2 font-bold">New Password</label>
-                    <input type="password" name="new_password" required class="w-full bg-gray-50 border border-brand-border rounded-2xl px-5 py-4 text-sm focus:border-brand-gold outline-none transition-all placeholder:text-gray-300">
+                    <label class="text-[10px] uppercase tracking-widest text-gray-400 block mb-2 font-bold">New
+                        Password</label>
+                    <input type="password" name="new_password" required
+                        class="w-full bg-gray-50 border border-brand-border rounded-2xl px-5 py-4 text-sm focus:border-brand-gold outline-none transition-all placeholder:text-gray-300">
                 </div>
                 <div>
-                    <label class="text-[10px] uppercase tracking-widest text-gray-400 block mb-2 font-bold">Confirm New Password</label>
-                    <input type="password" name="confirm_password" required class="w-full bg-gray-50 border border-brand-border rounded-2xl px-5 py-4 text-sm focus:border-brand-gold outline-none transition-all placeholder:text-gray-300">
+                    <label class="text-[10px] uppercase tracking-widest text-gray-400 block mb-2 font-bold">Confirm New
+                        Password</label>
+                    <input type="password" name="confirm_password" required
+                        class="w-full bg-gray-50 border border-brand-border rounded-2xl px-5 py-4 text-sm focus:border-brand-gold outline-none transition-all placeholder:text-gray-300">
                 </div>
                 <div class="pt-4">
-                    <button type="submit" id="password-submit-btn" class="w-full bg-brand-black text-white py-4 rounded-2xl text-xs uppercase tracking-[0.2em] font-bold hover:bg-brand-gold hover:text-brand-black transition-all">Update Password</button>
+                    <button type="submit" id="password-submit-btn"
+                        class="w-full bg-brand-black text-white py-4 rounded-2xl text-xs uppercase tracking-[0.2em] font-bold hover:bg-brand-gold hover:text-brand-black transition-all">Update
+                        Password</button>
                 </div>
             </form>
         </div>
@@ -364,11 +435,11 @@ function naira($val) {
             document.getElementById('password-modal').style.display = 'none';
         }
 
-        document.getElementById('password-form').addEventListener('submit', function(e) {
+        document.getElementById('password-form').addEventListener('submit', function (e) {
             e.preventDefault();
             const btn = document.getElementById('password-submit-btn');
             const alertBox = document.getElementById('password-alert');
-            
+
             btn.innerHTML = 'PROCESSING...';
             btn.disabled = true;
 
@@ -378,30 +449,31 @@ function naira($val) {
                 method: 'POST',
                 body: formData
             })
-            .then(response => response.json())
-            .then(data => {
-                btn.innerHTML = 'UPDATE PASSWORD';
-                btn.disabled = false;
-                
-                alertBox.classList.remove('hidden', 'bg-red-50', 'text-red-500', 'border-red-100', 'bg-green-50', 'text-green-600', 'border-green-100');
-                
-                if (data.success) {
-                    alertBox.classList.add('bg-green-50', 'text-green-600', 'border', 'border-green-100');
-                    alertBox.innerText = data.message;
-                    setTimeout(() => { closeChangePasswordModal(); }, 2000);
-                } else {
+                .then(response => response.json())
+                .then(data => {
+                    btn.innerHTML = 'UPDATE PASSWORD';
+                    btn.disabled = false;
+
+                    alertBox.classList.remove('hidden', 'bg-red-50', 'text-red-500', 'border-red-100', 'bg-green-50', 'text-green-600', 'border-green-100');
+
+                    if (data.success) {
+                        alertBox.classList.add('bg-green-50', 'text-green-600', 'border', 'border-green-100');
+                        alertBox.innerText = data.message;
+                        setTimeout(() => { closeChangePasswordModal(); }, 2000);
+                    } else {
+                        alertBox.classList.add('bg-red-50', 'text-red-500', 'border', 'border-red-100');
+                        alertBox.innerText = data.message;
+                    }
+                })
+                .catch(err => {
+                    btn.innerHTML = 'UPDATE PASSWORD';
+                    btn.disabled = false;
+                    alertBox.classList.remove('hidden');
                     alertBox.classList.add('bg-red-50', 'text-red-500', 'border', 'border-red-100');
-                    alertBox.innerText = data.message;
-                }
-            })
-            .catch(err => {
-                btn.innerHTML = 'UPDATE PASSWORD';
-                btn.disabled = false;
-                alertBox.classList.remove('hidden');
-                alertBox.classList.add('bg-red-50', 'text-red-500', 'border', 'border-red-100');
-                alertBox.innerText = 'An error occurred. Please try again.';
-            });
+                    alertBox.innerText = 'An error occurred. Please try again.';
+                });
         });
     </script>
 </body>
+
 </html>

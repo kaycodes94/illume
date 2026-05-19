@@ -903,13 +903,13 @@ function naira($val) {
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <div
                         class="relative h-[500px] md:h-[600px] rounded-2xl overflow-hidden bg-gray-50 flex items-center justify-center border border-gray-100 shadow-sm">
-                        <div class="absolute inset-0 bg-gradient-to-tr from-white via-brand-milk/20 to-brand-gold/5"
+                        <img src="assets/img/founder.jpg" alt="Ikedichukwu Peace" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
                             aria-hidden="true"></div>
-                        <div class="text-center z-10 p-8">
-                            <span class="font-serif italic text-6xl text-brand-gold opacity-80">I.P.</span>
-                            <p class="text-brand-black tracking-widest uppercase text-xs mt-4 opacity-70">Ikedichukwu
-                                Peace</p>
-                            <p class="text-xs text-gray-400 mt-2">Founder · ILLUME</p>
+                        <div class="absolute bottom-0 left-0 w-full p-8 text-white z-10">
+                            <span class="font-serif italic text-3xl text-brand-gold opacity-90 block mb-1">I.P.</span>
+                            <p class="text-white tracking-widest uppercase text-xs font-bold opacity-90">Ikedichukwu Peace</p>
+                            <p class="text-xs text-gray-300 mt-1">Founder · ILLUME</p>
                         </div>
                     </div>
 
