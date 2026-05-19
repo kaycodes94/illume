@@ -86,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .bg-pattern { background-image: radial-gradient(#D4AF37 0.5px, transparent 0.5px); background-size: 24px 24px; opacity: 0.15; }
     </style>
 </head>
-<body class="h-screen flex items-center justify-center p-6 antialiased overflow-hidden">
+<body class="min-h-screen flex items-center justify-center p-6 antialiased">
 
     <!-- Decorative background elements -->
     <div class="absolute inset-0 bg-pattern pointer-events-none"></div>
