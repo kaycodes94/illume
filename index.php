@@ -278,6 +278,11 @@ function naira($val) {
             bottom: 24px;
             right: 24px;
             z-index: 100;
+            pointer-events: none;
+        }
+
+        .chat-widget button {
+            pointer-events: auto;
         }
 
         .chat-window {
