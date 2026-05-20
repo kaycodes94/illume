@@ -848,42 +848,50 @@ function naira($val) {
                         reserved for our private clients — request the full archive on booking.</p>
                 </div>
                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-                    <figure class="lookbook-tile lookbook-1">
+                    <figure class="lookbook-tile lookbook-1 relative overflow-hidden">
+                        <img src="assets/img/bridalspics.png" alt="Bridal · 01" class="absolute inset-0 w-full h-full object-cover object-top">
                         <figcaption
                             class="absolute bottom-3 left-4 text-white/80 text-xs uppercase tracking-widest z-10">Bridal
                             · 01</figcaption>
                     </figure>
-                    <figure class="lookbook-tile lookbook-2 mt-8">
+                    <figure class="lookbook-tile lookbook-2 mt-8 relative overflow-hidden">
+                        <img src="assets/img/asoebipics.png" alt="Asoebi · 02" class="absolute inset-0 w-full h-full object-cover object-top">
                         <figcaption
                             class="absolute bottom-3 left-4 text-brand-black/80 text-xs uppercase tracking-widest z-10">
                             Asoebi · 02</figcaption>
                     </figure>
-                    <figure class="lookbook-tile lookbook-3">
+                    <figure class="lookbook-tile lookbook-3 relative overflow-hidden">
+                        <img src="assets/img/suitpics.png" alt="Suit · 03" class="absolute inset-0 w-full h-full object-cover object-top">
                         <figcaption
                             class="absolute bottom-3 left-4 text-white/80 text-xs uppercase tracking-widest z-10">Suit ·
                             03</figcaption>
                     </figure>
-                    <figure class="lookbook-tile lookbook-4 mt-8">
+                    <figure class="lookbook-tile lookbook-4 mt-8 relative overflow-hidden">
+                        <img src="assets/img/luxurypics.png" alt="Luxury · 04" class="absolute inset-0 w-full h-full object-cover object-top">
                         <figcaption
                             class="absolute bottom-3 left-4 text-brand-black/80 text-xs uppercase tracking-widest z-10">
                             Luxury · 04</figcaption>
                     </figure>
-                    <figure class="lookbook-tile lookbook-2 mt-4">
+                    <figure class="lookbook-tile lookbook-2 mt-4 relative overflow-hidden">
+                        <img src="assets/img/dinnerpics.png" alt="Dinner · 05" class="absolute inset-0 w-full h-full object-cover object-top">
                         <figcaption
                             class="absolute bottom-3 left-4 text-brand-black/80 text-xs uppercase tracking-widest z-10">
                             Dinner · 05</figcaption>
                     </figure>
-                    <figure class="lookbook-tile lookbook-3">
+                    <figure class="lookbook-tile lookbook-3 relative overflow-hidden">
+                        <img src="assets/img/couturepics.png" alt="Couture · 06" class="absolute inset-0 w-full h-full object-cover object-top">
                         <figcaption
                             class="absolute bottom-3 left-4 text-white/80 text-xs uppercase tracking-widest z-10">
                             Couture · 06</figcaption>
                     </figure>
-                    <figure class="lookbook-tile lookbook-1 mt-4">
+                    <figure class="lookbook-tile lookbook-1 mt-4 relative overflow-hidden">
+                        <img src="assets/img/heritagepics.png" alt="Heritage · 07" class="absolute inset-0 w-full h-full object-cover object-top">
                         <figcaption
                             class="absolute bottom-3 left-4 text-white/80 text-xs uppercase tracking-widest z-10">
                             Heritage · 07</figcaption>
                     </figure>
-                    <figure class="lookbook-tile lookbook-4">
+                    <figure class="lookbook-tile lookbook-4 relative overflow-hidden">
+                        <img src="assets/img/editorialpics.png" alt="Editorial · 08" class="absolute inset-0 w-full h-full object-cover object-top">
                         <figcaption
                             class="absolute bottom-3 left-4 text-brand-black/80 text-xs uppercase tracking-widest z-10">
                             Editorial · 08</figcaption>
@@ -903,9 +911,7 @@ function naira($val) {
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <div
                         class="relative h-[500px] md:h-[600px] rounded-2xl overflow-hidden bg-gray-50 flex items-center justify-center border border-gray-100 shadow-sm">
-                        <img src="assets/img/founder.jpg" alt="Ikedichukwu Peace" class="absolute inset-0 w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
-                            aria-hidden="true"></div>
+                        <img src="assets/img/founder.jpg" alt="Ikedichukwu Peace" class="absolute inset-0 w-full h-full object-cover object-top">
                         <div class="absolute bottom-0 left-0 w-full p-8 text-white z-10">
                             <span class="font-serif italic text-3xl text-brand-gold opacity-90 block mb-1">I.P.</span>
                             <p class="text-white tracking-widest uppercase text-xs font-bold opacity-90">Ikedichukwu Peace</p>
