@@ -8,7 +8,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // Database Connection
-$host = 'localhost';
+$host = '127.0.0.1';
 $user = 'root';
 $pass = '';
 $db   = 'illume_db';
@@ -20,7 +20,7 @@ $settings = [
     'brand_name' => 'ILLUME by Light Peace',
     'tagline'    => 'Crafted in Light',
     'email_contact' => 'lightpeacelimited@gmail.com',
-    'whatsapp_number' => '+2348130024904'
+    'whatsapp_number' => '+2349039963415'
 ];
 
 if (!$conn->connect_error) {
@@ -92,7 +92,7 @@ function naira($val) {
       "description": "African luxury fashion house — bespoke bridals, asoebi, suits, and fashion consultancy.",
       "founder": "Ikedichukwu Peace",
       "foundingDate": "2018",
-      "telephone": "+234 813 002 4904",
+      "telephone": "+234 903 996 3415",
       "email": "lightpeacelimited@gmail.com",
       "address": [
         { "@type": "PostalAddress", "addressLocality": "Kubwa", "addressRegion": "Abuja", "addressCountry": "NG" },
@@ -570,7 +570,7 @@ function naira($val) {
                     <button type="submit"
                         class="flex-1 bg-brand-black text-white py-3 rounded-full uppercase tracking-widest text-xs hover:bg-brand-gold hover:text-brand-black transition-all">Send
                         Request</button>
-                    <a href="https://wa.me/2348130024904" target="_blank" rel="noopener"
+                    <a href="https://wa.me/2349039963415" target="_blank" rel="noopener"
                         class="flex-1 text-center border border-brand-black/15 py-3 rounded-full uppercase tracking-widest text-xs hover:border-brand-gold hover:text-brand-gold transition-colors">WhatsApp
                         Instead</a>
                 </div>
@@ -1290,7 +1290,7 @@ function naira($val) {
     <!-- Sticky mobile CTA -->
     <div class="sticky-cta">
         <div class="flex gap-2">
-            <a href="https://wa.me/2348130024904"
+            <a href="https://wa.me/2349039963415"
                 class="flex-1 bg-brand-black text-white text-center py-3 rounded-full text-xs uppercase tracking-widest">WhatsApp</a>
             <button onclick="openBookingModal()"
                 class="flex-1 bg-brand-gold text-brand-black py-3 rounded-full text-xs uppercase tracking-widest font-medium">Book</button>

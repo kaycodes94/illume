@@ -281,7 +281,7 @@ CREATE TABLE IF NOT EXISTS site_settings (
 INSERT INTO site_settings (setting_key, value) VALUES
 ('brand_name',        'ILLUME by Light Peace'),
 ('tagline',           'Crafted in Light'),
-('whatsapp_number',   '+2348130024904'),
+('whatsapp_number',   '+2349039963415'),
 ('email_contact',     'lightpeacelimited@gmail.com'),
 ('atelier_abuja',     'Kubwa, Abuja'),
 ('atelier_ebonyi',    'Abakaliki, Ebonyi State'),
